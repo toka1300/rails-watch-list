@@ -1,4 +1,7 @@
 <h1>Create a new bookmark!</h1>
 
-<h4>Choose the movie you would like to add</h4>
-@movies.each
+<%= simple_form_for([@list, @bookmark]) do |f| %>
+  <%= f.association :movie %>
+  <%= f.input :comment %>
+  <%= f.submit %>
+<% end %>

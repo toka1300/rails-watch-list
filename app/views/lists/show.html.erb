@@ -1,7 +1,13 @@
 <h1>Here are your list:</h1>
 
 <p><%= @list.name %></p>
+<ul>
+  <% @list.bookmarks.each do |bookmark| %>
+  <li> <%= bookmark.movie.title %> </li>
+ <% end %>
+</ul>
 
 <p>
   <%= link_to "Back to Home", lists_path %>
+  <%= link_to "Go to Bookmark", new_list_bookmark_path(@list) %>
 </p>
