@@ -6,11 +6,14 @@ class BookmarksController < ApplicationController
 
   def create
     @list = List.find(params[:list_id])
-    bookmark = Bookmark.new(bookmark_params)
-    bookmark.list = @list
-    # raise
-    bookmark.save
-    redirect_to list_path(@list)
+    @bookmark = Bookmark.new(bookmark_params)
+    @bookmark.list = @list
+    if @bookmark.save
+      redirect_to list_path(@list)
+    else
+      # raise
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def index
