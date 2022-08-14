@@ -1,6 +1,6 @@
 <h1>Create your own new list!</h1>
 
 <%= simple_form_for(@list) do |f| %>
-  <%= f.input :name %>
+  <%= f.input :name, label: 'Enter the name of your new list (this better be good...)' %>
   <%= f.submit %>
 <% end %>
